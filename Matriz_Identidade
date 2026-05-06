@@ -1,0 +1,26 @@
+algoritmo "Matriz Identidade"
+var
+mat: vetor[1..5,1..5] de inteiro
+l,c: inteiro
+diagonal_principal: inteiro
+procedimento desenharmatriz()
+inicio
+  para l de 1 ate 5 faca
+    para c de 1 ate 5 faca
+      escreva(mat[l,c]," ")
+    fimpara
+    escreval()
+  fimpara
+fimprocedimento
+inicio
+  para l de 1 ate 5 faca
+    para c de 1 ate 5 faca
+      se (c = l) entao
+        mat[l,c] <- 1
+      senao
+        mat[l,c] <- 0
+      fimse
+    fimpara
+  fimpara
+desenharmatriz
+fimalgoritmo

@@ -1,0 +1,70 @@
+algoritmo "Estatisticas_Da_Matriz"
+var
+mat: vetor[1..5,1..5] de inteiro
+l,c: inteiro
+diagonal_principal: inteiro
+produto_da_linha2: inteiro
+maior3c: inteiro
+procedimento desenharmatriz()
+inicio
+  para l de 1 ate 5 faca
+    para c de 1 ate 5 faca
+      escreva(mat[l,c]," ")
+    fimpara
+    escreval()
+  fimpara
+fimprocedimento
+inicio
+timer 20
+produto_da_linha2 <- 1
+diagonal_principal <- 0
+maior3c <- 0
+  para c de 1 ate 5 faca
+    para l de 1 ate 5 faca
+      escreva("Informe o valor da matriz [",l,",",c,"]: ") // Bloco de validação
+      leia(mat[l,c])
+      escreval("")
+    fimpara
+  fimpara
+  para c de 1 ate 5 faca
+    para l de 1 ate 5 faca
+      se (c = l) entao
+        diagonal_principal <- diagonal_principal + mat[l,c] // Bloco da diagonal
+      fimse
+    fimpara
+  fimpara
+  para c de 1 ate 5 faca
+    produto_da_linha2 <- produto_da_linha2 * mat[2,c] // Bloco da segunda linha
+  fimpara
+  para l de 1 ate 5 faca
+    se (mat[l,3] > maior3c) entao // Bloco do maior da terceira coluna
+      maior3c <- mat[l,3]
+    fimse
+  fimpara
+limpatela
+escreval("Matriz =>>")
+escreval("")
+desenharmatriz // Resultados
+escreval("")
+escreval("============================")
+escreva("Os valores da diagonal principal foram =>> ")
+para c de 1 ate 5 faca
+    para l de 1 ate 5 faca
+      se (c = l) entao
+        escreva(mat[l,c])
+      fimse
+    fimpara
+  fimpara
+escreval("")
+escreval("A soma deles foi =>> ",diagonal_principal)
+escreval("============================")
+escreva("Os valores da segunda linha foram =>> ")
+  para c de 1 ate 5 faca
+    escreva(mat[2,c])
+  fimpara
+escreval()
+escreval("A soma deles foi =>> ",produto_da_linha2)
+escreval("============================")
+escreval("O maior valor da terceira coluna foi =>> ",maior3c)
+escreval("============================")
+fimalgoritmo

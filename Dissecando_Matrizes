@@ -1,0 +1,118 @@
+algoritmo "Dissecando Matrizes"
+var
+mat: vetor[1..5, 1..5] de inteiro
+l,c: inteiro
+opcao: inteiro
+resp:caractere
+procedimento desenharinfo()
+inicio
+timer 0
+escreval("Para triangulo superior digite [1]")
+escreval("Para diagonal principal digite [2]")
+escreval("Para triangulo inferior digite [3]")
+escreval("Para sair digite [4]")
+escreval("==================================")
+escreva("OPCAO =>> ")
+leia(opcao)
+  enquanto (opcao < 1) ou (opcao > 4) faca
+    escreval("Selecao nao identificada! Tente novamente: ")
+    leia(opcao)
+  fimenquanto
+fimprocedimento
+procedimento desenharmatriz()
+inicio
+timer 10
+  para c de 1 ate 5 faca
+    para l de 1 ate 5 faca
+      escreva(mat[l,c]," ")
+    fimpara
+    escreval()
+  fimpara
+fimprocedimento
+inicio
+timer 10
+repita
+limpatela
+escreval("Matriz base =>>")
+escreval()
+para c de 1 ate 5 faca
+    para l de 1 ate 5 faca
+      mat[l,c] <- 0
+      escreva(mat[l,c]," ")
+    fimpara
+    escreval()
+  fimpara
+escreval()
+timer 0
+escreval("==================================")
+escreval("Para triangulo superior digite [1]")
+escreval("Para diagonal principal digite [2]")
+escreval("Para triangulo inferior digite [3]")
+escreval("Para sair digite [4]")
+escreval("==================================")
+escreva("OPCAO =>> ")
+leia(opcao)
+  enquanto (opcao < 1) ou (opcao > 4) faca
+    escreval("Selecao nao identificada! Tente novamente: ")
+    leia(opcao)
+  fimenquanto
+    escolha (opcao) faca
+      caso 1
+        limpatela
+        escreval("Triangulo superior =>>")
+        escreval()
+          para c de 1 ate 5 faca
+            para l de 1 ate 5 faca
+              se (c < l) entao
+                mat[l,c] <- 1
+              senao
+                mat[l,c] <- 0
+              fimse
+            fimpara
+          fimpara
+          desenharmatriz
+          escreval()
+          escreval("==================================")
+          desenharinfo
+      caso 2
+        limpatela
+        escreval("Diagonal principal =>>")
+        escreval()
+          para c de 1 ate 5 faca
+            para l de 1 ate 5 faca
+              se (c = l) entao
+                mat[l,c] <- 1
+              senao
+                mat[l,c] <- 0
+              fimse
+            fimpara
+          fimpara
+          desenharmatriz
+          escreval()
+          escreval("==================================")
+          desenharinfo
+      caso 3
+        limpatela
+        escreval("Triangulo inferior =>>")
+        escreval()
+          para c de 1 ate 5 faca
+            para l de 1 ate 5 faca
+              se (c > l) entao
+                mat[l,c] <- 1
+              senao
+                mat[l,c] <- 0
+              fimse
+            fimpara
+          fimpara
+          desenharmatriz
+          escreval()
+          escreval("==================================")
+          desenharinfo
+      caso 4
+        limpatela
+        resp <- "sair"
+        escreval("Encerrando . . .")
+        escreval()
+      fimescolha
+ate (resp = "sair")
+fimalgoritmo
